@@ -22,11 +22,11 @@ impl SmartSocket {
     }
 
     pub fn is_turn_on(&self) -> bool {
-        self.is_on == true
+        self.is_on
     }
 
     pub fn is_turn_off(&self) -> bool {
-        self.is_on == false
+        !self.is_on
     }
 
     pub fn get_power_consumption(&self) -> f32 {
@@ -40,9 +40,7 @@ impl SmartSocket {
 
 #[test]
 fn test_create() {
-    let mut sut = SmartSocket::new(
-        "test-description".to_string()
-    );
+    let mut sut = SmartSocket::new("test-description".to_string());
 
     assert_eq!("test-description".to_string(), sut.get_description());
     assert!(sut.is_turn_off());
